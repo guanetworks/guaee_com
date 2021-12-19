@@ -1,0 +1,73 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=0.9, maximum-scale=1.0, minimum-scale=0.9, user-scalable=0, width=device-width">
+		<title>呱呱主页</title>
+		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css">
+		<script src="//lib.baomitu.com/jquery/3.5.0/jquery.min.js"></script>
+		<script>
+			setTimeout(function() {
+				$("#hitokoto").fadeOut(1000);
+			}, 5000);
+
+			function goo() {
+				fetch('https://v1.hitokoto.cn')
+					.then(function(res) {
+						return res.json();
+					})
+					.then(function(data) {
+						var hitokoto = document.getElementById('hitokoto');
+						hitokoto.innerHTML = data.hitokoto;
+						$("#hitokoto").fadeIn(1000);
+					})
+					.catch(function(err) {
+						console.error(err);
+					})
+				setTimeout(function() {
+					$("#hitokoto").fadeOut(1000);
+				}, 5000);
+			}
+			setInterval("goo()", 5800);
+		</script>
+		<style>
+			.user-warp img {
+				width: 70px;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="intro" style=" line-height:40px">
+			<div class="user-warp img"><img src="https://cdn.jsdelivr.net/gh/guanetworks/guanetworks/tx.png"></div>
+			<div class="nickname">呱呱</div>
+			<div class="description"><p id="hitokoto">城南花已开 故人已不在</p></div>
+			        <a class="menu-item" href="https://idc.guaee.com" target="_blank">呱呱云</a><br>
+			        <a class="menu-item" href="https://mi.guaee.com" target="_blank">呱呱米店</a><br>
+                    <a class="menu-item" href="https://api.guaee.com" target="_blank">呱呱API</a><br>
+                    <a class="menu-item" href="https://qqpro.guaee.com" target="_blank">呱呱多开</a><br>
+                    <a class="menu-item" href="https://yin.guaee.com" target="_blank">呱呱音乐</a><br>
+					<a class="menu-item" href="https://ds.guaee.com" target="_blank">呱呱代刷</a><br>
+					<a class="menu-item" href="https://dg.guaee.com" target="_blank">呱呱代挂</a><br>
+					<a class="menu-item" href="https://hz.guaee.com" target="_blank">呱呱互赞</a><br>
+					<a class="menu-item" href="https://mz.guaee.com" target="_blank">呱呱秒赞</a><br>
+					<a class="menu-item" href="https://blog.guaee.com" target="_blank">呱呱博客</a><br>
+					<a class="menu-item" href="https://url.guaee.com" target="_blank">呱呱防红</a><br>
+					<a class="menu-item" href="https://img.guaee.com" target="_blank">呱呱图床</a><br>
+					<a class="menu-item" href="https://game.guaee.com" target="_blank">呱呱游戏</a><br>
+					<a class="menu-item" href="https://tool.guaee.com" target="_blank">呱呱工具</a><br>
+					<a class="menu-item" href="https://drive.guaee.com" target="_blank">呱呱云盘</a><br>
+					<a class="menu-item" href="https://forum.guaee.com" target="_blank">呱呱论坛</a><br>
+					<a class="menu-item" href="https://chat.guaee.com" target="_blank">呱呱聊天室</a><br>
+					<a class="menu-item" href="https://q.guaee.com" target="_blank">呱呱查Q绑</a><br>
+					<a class="menu-item" href="https://tp.guaee.com" target="_blank">呱呱照妖镜</a><br>
+					<a class="menu-item" href="https://i.guaee.com" target="_blank">呱呱捷径库</a><br>
+					<a class="menu-item" href="https://online.guaee.com" target="_blank">呱呱改Q在线</a><br>
+					<a class="menu-item" href="https://sms.guaee.com" target="_blank">呱呱短信测压</a><br>
+					<a class="menu-item" href="https://dns.guaee.com" target="_blank">呱呱域名分发</a><br>
+					<a class="menu-item" href="https://wpa.qq.com/msgrd?v=3&tmp;uin=1515877886&site=qq&menu=yes" target="_blank">关于呱呱</a>
+		</div>
+		<footer id="footer" class="footer">&copy;呱呱不识字</footer>
+	</body>
+</html>
